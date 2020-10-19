@@ -1,3 +1,5 @@
+# Unfinished
+
 import os
 import discord
 from dotenv import load_dotenv
@@ -27,8 +29,7 @@ globals = Globals()
 async def on_ready():
     print(f"{bot.user.name} is online")
 
-help_message = "Saves a player tag to a discord user"
-@bot.command(name='save', help=help_message)
+@bot.command(name='save')
 async def save(ctx, player_tag=None):
     player = None
     try: player = cr_client.get_player(player_tag)
@@ -37,7 +38,6 @@ async def save(ctx, player_tag=None):
         globals.player_tags[f"{ctx.message.author.id}"] = player_tag
         await ctx.send("Player tag saved.")
 
-help_message
 @bot.command(name='get')
 async def get(ctx, player_tag=None):
     if player_tag is None:
