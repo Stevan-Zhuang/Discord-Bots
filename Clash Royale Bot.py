@@ -1,11 +1,11 @@
-# Unfinished
-
 import os
 import discord
 from dotenv import load_dotenv
 from discord.ext import commands
-import clashroyale
 from collections import Counter
+
+# https://pypi.org/project/clashroyale/
+import clashroyale
 
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN_CLASH')
@@ -29,7 +29,8 @@ globals = Globals()
 async def on_ready():
     print(f"{bot.user.name} is online")
 
-@bot.command(name='save')
+help_message = "Saves a player tag under a discord id"
+@bot.command(name='save', help=help_message)
 async def save(ctx, player_tag=None):
     player = None
     try: player = cr_client.get_player(player_tag)
@@ -38,7 +39,8 @@ async def save(ctx, player_tag=None):
         globals.player_tags[f"{ctx.message.author.id}"] = player_tag
         await ctx.send("Player tag saved.")
 
-@bot.command(name='get')
+help_message = "Gets brief overview of the stats of a player"
+@bot.command(name='get', help=help_message)
 async def get(ctx, player_tag=None):
     if player_tag is None:
         try: player_tag = globals.player_tags[f"{ctx.message.author.id}"]
