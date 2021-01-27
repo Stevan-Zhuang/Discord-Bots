@@ -1,3 +1,7 @@
+# Discord bot for the mobile game Clash Royale
+# Can search up players for stats and battle history
+# By Stevan Zhuang
+
 import os
 import discord
 from dotenv import load_dotenv
