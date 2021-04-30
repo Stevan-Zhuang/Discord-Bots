@@ -1,4 +1,4 @@
-# clash-royale-discord-bots
+# clash-royale-discord-bot
 A Bot user for the game Clash Royale for the Discord messaging service.\
 Bot is not currently hosted on any server.
 ## Command Showcase
